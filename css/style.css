@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box ;
+  text-decoration: none;
+}
+
+nav {
+  a {
+    color: black;
+  }
+}
+
+.chooser {
+  display: flex;
+  justify-content: center;
+  input {
+    background-color:ghostwhite;
+    margin: 0 2rem;
+    width: 6rem;
+    height: 4rem;
+  }
+}
+
+.space {
+  margin: 8rem;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  div {
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      width: 4rem;
+      height: 2rem;
+    }
+  }
+}

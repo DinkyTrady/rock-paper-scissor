@@ -1,12 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rock Peper Scissors</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-  <script src="./script.js"></script>
+    <header>
+      <h1>Rock Peper Scissors</h1>
+      <h2>Play The Games!</h2>
+      <nav>
+        <a
+          href="https://github.com/DinkyTrady/rock-paper-scissor"
+          target="_blank"
+        >
+          <i class="fa-brands fa-github"></i>Github
+        </a>
+      </nav>
+    </header>
+    <main>
+      <div class="chooser">
+        <input id="choice" type="button" value="Rock"/>
+        <input id="choice" type="button" value="Paper" />
+        <input id="choice" type="button" value="Scissor" />
+      </div>
+
+      <div class="space"></div>
+
+      <div class="info">
+        <div>
+          <button>Reset</button>
+        </div>
+        <div id="theScore">Your Score: <span id="score"></span></div>
+        <div>
+          <button>Play</button>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
   </body>
 </html>
