@@ -28,21 +28,21 @@
     </header>
     <main>
       <div class="chooser">
-        <input id="choice" type="button" value="Rock"/>
-        <input id="choice" type="button" value="Paper" />
-        <input id="choice" type="button" value="Scissor" />
+        <button class="choice" data-choice="rock">Rock</button>
+        <button class="choice" data-choice="paper">Paper</button>
+        <button class="choice" data-choice="scissor">Scissor</button>
       </div>
 
       <div class="space"></div>
 
       <div class="info">
-        <div>
-          <button>Reset</button>
+        <p id="textInfo"> </p>
+        <div id="theScore">
+          <h3>The Scores</h3>
+          <p>Your Score: <span id="humanScore">0</span></p>
+          <p>Computer Score: <span id="computerScore">0</span></p>
         </div>
-        <div id="theScore">Your Score: <span id="score"></span></div>
-        <div>
-          <button>Play</button>
-        </div>
+        <button id="resetButton" type="reset">Reset</button>
       </div>
     </main>
     <script src="./script.js"></script>

@@ -1,8 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box ;
+  box-sizing: border-box;
   text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
@@ -14,11 +15,21 @@ nav {
 .chooser {
   display: flex;
   justify-content: center;
-  input {
-    background-color:ghostwhite;
+  .choice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ghostwhite;
+    border: 0.1rem solid cyan;
     margin: 0 2rem;
     width: 6rem;
-    height: 4rem;
+    height: 6rem;
+    cursor: pointer;
+  }
+
+  .choice:hover {
+    outline: 0.15rem solid cyan;
+    font-weight: bold;
   }
 }
 
@@ -28,17 +39,18 @@ nav {
 
 .info {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 4rem;
-  div {
-    width: 10rem;
-    height: 10rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    button {
-      width: 4rem;
-      height: 2rem;
-    }
+  p {
+    text-align: center;
+  }
+  h3 {
+    font-size: 3rem;
+  }
+  button {
+    width: 4rem;
+    height: 2rem;
   }
 }
