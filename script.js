@@ -1,5 +1,14 @@
 let humanScore = 0
 let computerScore = 0
+let humanChoice;
+let computerChoice;
+
+const buttons = document.querySelectorAll('.choice')
+const buttonReset = document.getElementById('resetButton')
+
+const textInfo = document.getElementById('textInfo')
+const humanScoreInfo = document.getElementById('humanScore')
+const computerScoreInfo = document.getElementById('computerScore')
 
 const getComputerChoice = () => {
   const randomNumber = Math.random();
@@ -13,39 +22,56 @@ const getComputerChoice = () => {
   }
 }
 
-const getHumanChoice = () => {
-  return prompt('Give your choice')
-}
 
-const playGame = () => {
-  const humanChoiceFix = getHumanChoice()?.toLowerCase()
-  const computerChoice = getComputerChoice()
-
-  if (humanChoiceFix === computerChoice) {
-    console.log('You and Computer are Draw!')
-  } else if (humanChoiceFix === 'rock' && computerChoice === 'scissor') {
-    humanScore++;
-    console.log('You Win! Rock beats Scissor')
-  } else if (humanChoiceFix === 'scissor' && computerChoice === 'paper') {
-    humanScore++;
-    console.log('You Win! Scissor beats paper')
-  } else if (humanChoiceFix === 'paper' && computerChoice === 'rock') {
-    humanScore++;
-    console.log('You Win! Paper beats Rock')
-  } else if (computerChoice === 'rock' && humanChoiceFix === 'scissor') {
-    console.log('You lose! Paper beats Rock')
-    computerScore++;
-  } else if (computerChoice === 'scissor' && humanChoiceFix === 'paper')  {
-    console.log('You lose! Scissor beats Paper')
-    computerScore++;
-  } else if (computerChoice === 'paper' && humanChoiceFix === 'rock') {
-    console.log('You lose! Paper beats Rock')
-    computerScore++;
+/**
+  * @param {string} who
+  */
+const upScore = (who) => {
+  if (who === 'human') {
+    // @ts-ignore
+    humanScoreInfo.innerText = ++humanScore;
+    // @ts-ignore
+    textInfo.innerText = 'You WIN!'
+  } else {
+    // @ts-ignore
+    computerScoreInfo.innerText = ++computerScore;
+    // @ts-ignore
+    textInfo.innerText = 'Computer WIN!'
   }
 }
 
-for (let i = 0; i !==5 ; i++) {
-  playGame()
-}
 
-console.log(`Your Score: ${humanScore}\nComputer Score: ${computerScore}`)
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    // @ts-ignore
+    humanChoice = button.dataset.choice;
+    computerChoice = getComputerChoice();
+
+    if (computerChoice === humanChoice) {
+      // @ts-ignore
+      textInfo.innerText = 'You and Computer are Draw!'
+    } else if (computerChoice === 'rock' && humanChoice === 'scissor') {
+      upScore('comp')
+    } else if (computerChoice === 'paper' && humanChoice === 'rock') {
+      upScore('comp')
+    } else if (computerChoice === 'scissor' && humanChoice === 'paper') {
+      upScore('comp')
+    } else if (humanChoice === 'rock' && computerChoice === 'scissor') {
+      upScore('human')
+    } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+      upScore('human')
+    } else if (humanChoice === 'scissor' && computerChoice === 'paper') {
+      upScore('human')
+    }
+  })
+})
+
+buttonReset?.addEventListener('click', () => {
+  humanScore = 0
+  computerScore = 0
+
+  // @ts-ignore
+  humanScoreInfo.innerText = humanScore
+  // @ts-ignore
+  computerScoreInfo.innerText = computerScore
+})
